@@ -16,8 +16,8 @@ struct LocationsView: View {
             VStack {
                 header
                     .padding()
-
                 Spacer()
+                locationsPreviewCards
             }
         }
     }
@@ -57,5 +57,20 @@ extension LocationsView {
         .clipShape(RoundedRectangle(cornerRadius: 15))
         .shadow(color: .black.opacity(0.5), radius: 10, y: 10)
         .foregroundStyle(.primary)
+    }
+
+    private var locationsPreviewCards: some View {
+        ZStack {
+            ForEach(locationsVM.locations) { location in
+                if locationsVM.currentLocation == location {
+                    LocationPreviewCardView(location: location)
+                        .padding()
+                        .transition(.asymmetric(
+                            insertion: .move(edge: .trailing),
+                            removal: .move(edge: .leading))
+                        )
+                }
+            }
+        }
     }
 }
