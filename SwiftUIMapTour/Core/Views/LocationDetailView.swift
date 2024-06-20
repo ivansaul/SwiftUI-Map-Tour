@@ -26,6 +26,7 @@ struct LocationDetailView: View {
         .overlay(alignment: .topLeading, content: {
             backButton
         })
+        .scrollIndicators(ScrollIndicatorVisibility.hidden)
         .background(.ultraThinMaterial)
         .ignoresSafeArea()
     }
