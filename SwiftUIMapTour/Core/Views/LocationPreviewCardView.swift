@@ -69,7 +69,7 @@ extension LocationPreviewCardView {
     private var buttonsSection: some View {
         VStack {
             Button(action: {
-                // TODO: WIP
+                locationsVM.sheetLocation = location
             }, label: {
                 Text("Learn More")
                     .padding(5)
