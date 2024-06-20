@@ -39,13 +39,18 @@ struct LocationDetailView: View {
 
 extension LocationDetailView {
     private var imagesSection: some View {
-        TabView {
+        var widthForIpad: CGFloat? {
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                return UIScreen.main.bounds.width
+            }
+            return nil
+        }
+        return TabView {
             ForEach(location.imageNames, id: \.self) {
                 Image($0)
                     .resizable()
                     .scaledToFill()
-                    // TODO: Adapt frame for iPad
-                    .frame(width: UIScreen.main.bounds.width)
+                    .frame(width: widthForIpad)
                     .clipped()
             }
         }

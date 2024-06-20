@@ -16,6 +16,7 @@ struct LocationsView: View {
             VStack {
                 header
                     .padding()
+                    .frame(maxWidth: Constants.maxWidthForIpad)
                 Spacer()
                 locationsPreviewCards
             }
@@ -68,6 +69,8 @@ extension LocationsView {
                 if locationsVM.currentLocation == location {
                     LocationPreviewCardView(location: location)
                         .padding()
+                        .frame(maxWidth: Constants.maxWidthForIpad)
+                        .frame(maxWidth: .infinity)
                         .transition(.asymmetric(
                             insertion: .move(edge: .trailing),
                             removal: .move(edge: .leading))
