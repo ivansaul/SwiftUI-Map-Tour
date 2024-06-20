@@ -12,7 +12,7 @@ struct LocationsView: View {
     @EnvironmentObject private var locationsVM: LocationsViewModel
     var body: some View {
         ZStack {
-            Map(position: $locationsVM.mapRegion)
+            mapLayer
             VStack {
                 header
                     .padding()
@@ -69,6 +69,20 @@ extension LocationsView {
                             insertion: .move(edge: .trailing),
                             removal: .move(edge: .leading))
                         )
+                }
+            }
+        }
+    }
+
+    private var mapLayer: some View {
+        Map(position: $locationsVM.mapRegion) {
+            ForEach(locationsVM.locations) { location in
+                Annotation("", coordinate: location.coordinates) {
+                    LocationMapAnnotation()
+                        .scaleEffect(locationsVM.currentLocation == location ? 1 : 0.7)
+                        .onTapGesture {
+                            locationsVM.showNewLocation(location: location)
+                        }
                 }
             }
         }
