@@ -34,9 +34,7 @@ Explore famous landmarks like the `Eiffel Tower` and the `Roman Colosseum`, with
 
 ## Demo
 
-<p align="center">
-  <img src="https://i.imgur.com/ccGl78R.gif" alt="Demo">
-</p>
+https://github.com/ivansaul/SwiftUI-Map-Tour/assets/15005581/fc9eb581-b806-4d35-a266-6850e98b40f0
 
 ## Credits
 
